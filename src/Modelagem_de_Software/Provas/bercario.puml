@@ -1,0 +1,30 @@
+@startuml
+entity "Bebê" {
+    *id : INT
+    --
+    nome : VARCHAR(50)
+    data_nascimento : DATE
+    peso_nascimento : FLOAT
+    altura : FLOAT
+}
+
+entity "Mãe" {
+    *id : INT
+    --
+    nome : VARCHAR(50)
+    endereco : VARCHAR(100)
+    telefone : VARCHAR(20)
+    data_nascimento : DATE
+}
+
+entity "Médico" {
+    *id : INT
+    --
+    crm : VARCHAR(20)
+    nome : VARCHAR(50)
+}
+
+Bebê }o--|| Mãe : "tem mãe"
+Bebê }o--|| Médico : "foi atendido por"
+
+@enduml

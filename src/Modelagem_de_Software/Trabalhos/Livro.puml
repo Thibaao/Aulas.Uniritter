@@ -1,0 +1,32 @@
+@startuml
+
+entity "Livro" {
+    *id : INT
+    --
+    titulo : VARCHAR(100)
+    autor : VARCHAR(50)
+    ano_publicacao : INT
+    categoria : VARCHAR(30)
+}
+
+entity "Usuário" {
+    *id : INT
+    --
+    nome : VARCHAR(50)
+    endereco : VARCHAR(100)
+    telefone : VARCHAR(20)
+    data_cadastro : DATE
+}
+
+entity "Empréstimo" {
+    *id : INT
+    --
+    data_emprestimo : DATE
+    data_devolucao : DATE
+    status : VARCHAR(20)
+}
+
+Livro }o--|| Empréstimo : "está em"
+Usuário ||--o{ Empréstimo : "realiza"
+
+@enduml
